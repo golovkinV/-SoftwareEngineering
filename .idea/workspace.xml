@@ -31,7 +31,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e4e379d-bb62-4d52-90cf-0d20b0069683" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/software-engineering/components/Auth/Auth.vue" beforeDir="false" afterPath="$PROJECT_DIR$/software-engineering/components/Auth/Auth.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/software-engineering/.babelrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software-engineering/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software-engineering/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software-engineering/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software-engineering/components/Auth/Auth.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software-engineering/components/Auth/Registration.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software-engineering/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software-engineering/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software-engineering/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software-engineering/src/App.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software-engineering/src/assets/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software-engineering/src/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/software-engineering/webpack.config.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +55,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Vue Single File Component" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -60,6 +74,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -75,7 +90,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1606046265143</updated>
-      <workItem from="1606046267884" duration="3362000" />
+      <workItem from="1606046267884" duration="4524000" />
+      <workItem from="1606062590622" duration="2971000" />
     </task>
     <servers />
   </component>
@@ -92,6 +108,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="424" y="202" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606049660913">
