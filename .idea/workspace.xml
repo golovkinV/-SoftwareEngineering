@@ -32,19 +32,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1e4e379d-bb62-4d52-90cf-0d20b0069683" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/software-engineering/.babelrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/software-engineering/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/software-engineering/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/software-engineering/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/software-engineering/components/Auth/Auth.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/software-engineering/components/Auth/Registration.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/software-engineering/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/software-engineering/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/software-engineering/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/software-engineering/src/App.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/software-engineering/src/assets/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/software-engineering/src/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/software-engineering/webpack.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/tutorial.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/tutorial.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +64,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -91,7 +81,7 @@
       <option name="presentableId" value="Default" />
       <updated>1606046265143</updated>
       <workItem from="1606046267884" duration="4524000" />
-      <workItem from="1606062590622" duration="2971000" />
+      <workItem from="1606062590622" duration="4174000" />
     </task>
     <servers />
   </component>
