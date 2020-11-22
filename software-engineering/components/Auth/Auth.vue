@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     login: function () {
-      // const { username, password } = this
+      const { username, password } = this
       this.$router.push('/test')
     },
     register: function () {
