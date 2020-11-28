@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const db = require("./app/models");
+const db = require("./models");
 db.mongoose
     .connect(db.url, {
         useNewUrlParser: true,
@@ -35,7 +35,7 @@ app.get("/", (req, res) => {
     res.json({ message: "Welcome to application." });
 });
 
-require("./app/routes/tutorial.routes.js")(app);
+require("./routes/tutorial.routes.js")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
