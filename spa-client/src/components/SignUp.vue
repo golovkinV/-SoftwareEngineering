@@ -115,6 +115,7 @@ export default {
   border-radius: 1rem;
   padding: 1.5%;
   border: none;
+  outline:none;
   cursor: pointer;
 }
 

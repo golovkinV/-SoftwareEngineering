@@ -11,10 +11,10 @@
             <input type="password" v-model="password"  class="form-control" placeholder="Password" value="" required="required"/>
           </div>
           <div class="form-group">
-            <input type="submit" class="btnSubmit" value="Sign In" />
+            <input type="submit" class="btn" value="Sign In" />
           </div>
-          <div class="form-group">
-            <a href="#" class="ForgetPwd">Sign Up</a>
+          <div class="form-group" >
+            <button v-on:click="openRegistration" class="ForgetPwd">Sign Up</button>
           </div>
         </form>
       </div>
@@ -45,6 +45,9 @@ export default {
           .catch(e => {
             console.log(e);
           })
+    },
+    openRegistration: function () {
+      this.$router.push("/sign_up")
     }
   }
 }
@@ -69,22 +72,26 @@ export default {
 .login-container form{
   padding: 10%;
 }
-.btnSubmit
-{
+.btn {
+  font-weight: 600;
+  color: #fff;
+  background-color: #0062cc;
   width: 50%;
   border-radius: 1rem;
   padding: 1.5%;
   border: none;
+  outline:none;
   cursor: pointer;
 }
-.login-form-1 .btnSubmit{
-  font-weight: 600;
-  color: #fff;
-  background-color: #0062cc;
-}
+
 .login-form-1 .ForgetPwd{
+  width: 50%;
+  padding: 1.5%;
+  border: none;
+  cursor: pointer;
   color: #0062cc;
   font-weight: 600;
-  text-decoration: none;
+  background-color: #ffffff;
+  outline:none;
 }
 </style>
