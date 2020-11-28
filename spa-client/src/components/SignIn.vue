@@ -5,10 +5,10 @@
         <h3>Auth</h3>
         <form @submit.prevent="login">
           <div class="form-group">
-            <input type="text" v-model="email" class="form-control" placeholder="Email" value="" />
+            <input type="text" v-model="email" class="form-control" placeholder="Email" value="" required="required"/>
           </div>
           <div class="form-group">
-            <input type="password" v-model="password"  class="form-control" placeholder="Password" value="" />
+            <input type="password" v-model="password"  class="form-control" placeholder="Password" value="" required="required"/>
           </div>
           <div class="form-group">
             <input type="submit" class="btnSubmit" value="Sign In" />
@@ -45,9 +45,6 @@ export default {
           .catch(e => {
             console.log(e);
           })
-    },
-    register: function () {
-
     }
   }
 }
@@ -57,14 +54,17 @@ export default {
 .login-container{
   margin-top: 5%;
   margin-bottom: 5%;
+  text-align: center;
 }
 .login-form-1{
   padding: 5%;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
 }
 .login-form-1 h3{
-  text-align: center;
   color: #333;
+  font-weight: bold;
+  margin-top: 0;
+  text-align: center;
 }
 .login-container form{
   padding: 10%;

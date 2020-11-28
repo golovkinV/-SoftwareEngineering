@@ -2,6 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import Tutorials from "../components/Tutorials";
 import SignIn from "../components/SignIn";
+import SignUp from "@/components/SignUp";
 
 Vue.use(Router);
 
@@ -16,6 +17,10 @@ export default new Router({
         {
             path: "/sign_in",
             component: SignIn
+        },
+        {
+            path: "/sign_up",
+            component: SignUp
         }
     ]
 });

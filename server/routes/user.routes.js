@@ -8,5 +8,9 @@ module.exports = app => {
 
     // Login User
     router.get("/",users.login);
+
+    // All Users
+    router.get("/all",users.findAll);
+
     app.use('/api/users', router);
 };

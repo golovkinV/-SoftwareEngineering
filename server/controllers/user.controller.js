@@ -1,20 +1,34 @@
 const db = require("../models");
 const User = db.user;
 
+// Retrieve all Users from the database.
+exports.findAll = (req, res) => {
+    User.find()
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving tutorials."
+            });
+        });
+};
+
 // Register User
 exports.register = (req, res) => {
-    const body = req.body;
-    if (!body.email || !body.password) {
+    const userParams = req.body;
+    if (!userParams.email || !userParams.password) {
         res.status(400).send({ message: "Email and password can not be empty!" });
         return;
     }
 
     const user = new User({
-        email: body.email,
-        password: body.password,
-        firstName: body.firstName,
-        lastName: body.lastName,
-        country: body.country
+        email: userParams.email,
+        password: userParams.password,
+        firstName: userParams.firstName,
+        lastName: userParams.lastName,
+        country: userParams.country
     });
 
     user
