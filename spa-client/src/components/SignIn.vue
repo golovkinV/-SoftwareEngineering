@@ -3,12 +3,12 @@
     <div class="row align-items-center justify-content-center">
       <div class="col-md-6 login-form-1">
         <h3>Auth</h3>
-        <form>
+        <form @submit.prevent="login">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Email" value="" />
+            <input type="text" v-model="email" class="form-control" placeholder="Email" value="" />
           </div>
           <div class="form-group">
-            <input type="password" class="form-control" placeholder="Password" value="" />
+            <input type="password" v-model="password"  class="form-control" placeholder="Password" value="" />
           </div>
           <div class="form-group">
             <input type="submit" class="btnSubmit" value="Sign In" />
@@ -23,8 +23,33 @@
 </template>
 
 <script>
+import UserDataService from "@/services/UserDataService";
+
 export default {
-  name: "SignIn"
+  name: "SignIn",
+  data() {
+    return {
+      email: '',
+      password: ''
+    }
+  },
+  methods: {
+    login: function () {
+      const { email, password } = this
+      UserDataService
+          .login(email, password)
+          .then(response => {
+            console.log(response.data)
+            this.$router.push("/")
+          })
+          .catch(e => {
+            console.log(e);
+          })
+    },
+    register: function () {
+
+    }
+  }
 }
 </script>
 
