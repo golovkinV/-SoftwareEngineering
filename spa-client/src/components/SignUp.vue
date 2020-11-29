@@ -4,15 +4,15 @@
       <h3>Sign Up</h3>
       <div class="form-group">
         <label>First name</label>
-        <input v-model = "user.firstName" type="text" class="form-control">
+        <input v-model = "user.firstName" type="text" class="form-control" required="required">
       </div>
       <div class="form-group">
         <label>Last name</label>
-        <input v-model = "user.lastName" type="text" class="form-control">
+        <input v-model = "user.lastName" type="text" class="form-control" required="required">
       </div>
       <div class="form-group">
         <label>Country</label>
-        <input v-model = "user.country" type="text" class="form-control">
+        <input v-model = "user.country" type="text" class="form-control" required="required">
       </div>
       <div class="form-group">
         <label>Email</label>
