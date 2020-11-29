@@ -21,13 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1e4e379d-bb62-4d52-90cf-0d20b0069683" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spa-client/src/components/Profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/spa-client/src/components/Profile.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spa-client/src/components/SignIn.vue" beforeDir="false" afterPath="$PROJECT_DIR$/spa-client/src/components/SignIn.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spa-client/src/components/SignUp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/spa-client/src/components/SignUp.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spa-client/src/components/Tutorials.vue" beforeDir="false" afterPath="$PROJECT_DIR$/spa-client/src/components/Tutorials.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spa-client/src/router/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/spa-client/src/router/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spa-client/src/services/TutorialDataService.js" beforeDir="false" afterPath="$PROJECT_DIR$/spa-client/src/services/TutorialService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spa-client/src/services/UserDataService.js" beforeDir="false" afterPath="$PROJECT_DIR$/spa-client/src/services/UserService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +53,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -101,6 +97,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="424" y="202" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080/-1440.0.1440.900@0.0.1920.1080" timestamp="1606049660913" />
+    <state x="551" y="222" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1606667347491">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="551" y="222" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.1920.1080/-1440.0.1440.900@0.0.1920.1080" timestamp="1606667347491" />
     <state x="698" y="294" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606561743893">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -125,6 +125,10 @@
     </state>
     <state width="1899" height="305" key="GridCell.Tab.0.right/0.0.1920.1080/-1440.0.1440.900@0.0.1920.1080" timestamp="1606562303681" />
     <state width="1899" height="305" key="GridCell.Tab.0.right/0.23.1920.999/-1440.23.1440.877@0.23.1920.999" timestamp="1606593370731" />
+    <state x="469" y="179" key="SettingsEditor" timestamp="1606667224728">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="469" y="179" key="SettingsEditor/0.0.1920.1080/-1440.0.1440.900@0.0.1920.1080" timestamp="1606667224728" />
     <state x="625" y="241" width="670" height="676" key="search.everywhere.popup" timestamp="1606576994529">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

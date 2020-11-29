@@ -2,12 +2,14 @@
   <div class="container container-lrl">
     <div class="notice notice-lg">
       <strong>Login information</strong>
+      <img src="https://img.icons8.com/material/18/000000/pencil--v1.png"/>
       <hr>
       <label>Email:</label>&nbsp;<label class="label label-default">{{ user.email }}</label><br>
       <label>Role:</label>&nbsp;<label class="label label-default">{{ user.role.name }}</label>
     </div>
     <div class="notice  notice-lg">
       <strong>Profile information</strong>
+      <img src="https://img.icons8.com/material/18/000000/pencil--v1.png"/>
       <hr>
       <label>First name:</label>&nbsp;
       <label class="label label-default">{{ user.firstName }}</label><br>
@@ -18,6 +20,7 @@
     </div>
     <div class="notice notice-lg">
       <strong>Personal Identification Number</strong>
+      <img src="https://img.icons8.com/material/18/000000/pencil--v1.png"/>
       <hr>
     </div>
   </div>
@@ -50,6 +53,14 @@ export default {
 
 <!--// -->
 <style scoped>
+
+strong {
+  margin-right: 8px;
+}
+
+img {
+  margin-top: -4px;
+}
 
 .container-lrl{
   margin-top: 5%;
