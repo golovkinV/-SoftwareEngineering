@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const db = require("./models");
+const db = require("./index");
 db.mongoose
     .connect(db.url, {
         useNewUrlParser: true,
@@ -39,7 +39,7 @@ app.listen(PORT, () => {
 // Requests routes
 require("./routes/tutorial.routes.js")(app);
 require("./routes/user.routes.js")(app);
-
+require("./routes/role.routes")(app);
 
 
 

@@ -1,9 +1,11 @@
-const db = require("../models");
+const db = require("../index");
 const User = db.user;
+const Role = db.role
 
 // Retrieve all Users from the database.
 exports.findAll = (req, res) => {
     User.find()
+        .populate("role")
         .then(data => {
             res.send(data);
         })
@@ -18,6 +20,7 @@ exports.findAll = (req, res) => {
 // Register User
 exports.register = (req, res) => {
     const userParams = req.body;
+    const noRoleId = "5fc37f90f2a8280450a4176b"
     if (!userParams.email || !userParams.password) {
         res.status(400).send({ message: "Email and password can not be empty!" });
         return;
@@ -28,13 +31,24 @@ exports.register = (req, res) => {
         password: userParams.password,
         firstName: userParams.firstName,
         lastName: userParams.lastName,
-        country: userParams.country
+        country: userParams.country,
+        role: noRoleId
     });
 
     user
         .save(user)
         .then(data => {
-            res.send(data);
+            Role.updateOne({
+                _id: noRoleId
+            }, {
+                $addToSet: { users: [data.id] }
+            }, function(err, result) {
+                if (err) {
+                    res.send(err);
+                } else {
+                    res.send(data);
+                }
+            })
         })
         .catch(err => {
             res

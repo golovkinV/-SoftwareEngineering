@@ -1,21 +1,24 @@
 
 module.exports = mongoose => {
-    const schema = mongoose.Schema(
-        {
-            email: String,
-            password: String,
-            firstName: String,
-            lastName: String,
-            country: String
-        },
-        { timestamps: true }
-    );
+    const Schema = mongoose.Schema;
 
-    schema.method("toJSON", function() {
+    const userSchema = new Schema({
+        email: String,
+        password: String,
+        firstName: String,
+        lastName: String,
+        country: String,
+        role: {
+            type: Schema.Types.ObjectId,
+            ref: "Role",
+        }
+    }, { timestamps: true })
+
+    userSchema.method("toJSON", function() {
         const { __v, _id, ...object } = this.toObject();
         object.id = _id;
         return object;
     });
 
-    return mongoose.model("user", schema);
+    return mongoose.model("User", userSchema);
 };

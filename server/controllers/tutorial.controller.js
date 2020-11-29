@@ -1,4 +1,4 @@
-const db = require("../models");
+const db = require("../index");
 const Tutorial = db.tutorials;
 
 // Create and Save a new Tutorial
@@ -17,6 +17,7 @@ exports.create = (req, res) => {
     });
 
     // Save Tutorial in the database
+
     tutorial
         .save(tutorial)
         .then(data => {
