@@ -21,12 +21,13 @@
   <component name="ChangeListManager">
     <list default="true" id="1e4e379d-bb62-4d52-90cf-0d20b0069683" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/user.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/user.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spa-client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/spa-client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spa-client/src/components/SignIn.vue" beforeDir="false" afterPath="$PROJECT_DIR$/spa-client/src/components/SignIn.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spa-client/src/components/SignUp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/spa-client/src/components/SignUp.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spa-client/src/services/UserDataService.js" beforeDir="false" afterPath="$PROJECT_DIR$/spa-client/src/services/UserDataService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spa-client/src/components/Tutorials.vue" beforeDir="false" afterPath="$PROJECT_DIR$/spa-client/src/components/Tutorials.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spa-client/src/router/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/spa-client/src/router/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spa-client/src/services/TutorialDataService.js" beforeDir="false" afterPath="$PROJECT_DIR$/spa-client/src/services/TutorialService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spa-client/src/services/UserDataService.js" beforeDir="false" afterPath="$PROJECT_DIR$/spa-client/src/services/UserService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,8 +37,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="Vue Single File Component" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>

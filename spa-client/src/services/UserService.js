@@ -1,7 +1,6 @@
 import http from "../http-config.js";
-// const qs = require('qs');
 
-class UserDataService {
+class UserService {
 
     login(email, password) {
         return http.get("/user", { params: { email: email, password: password } })
@@ -12,4 +11,4 @@ class UserDataService {
     }
 }
 
-export default new UserDataService();
+export default new UserService();

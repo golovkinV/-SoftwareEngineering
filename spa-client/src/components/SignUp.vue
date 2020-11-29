@@ -35,7 +35,7 @@
 
 <script>
 
-import UserDataService from "@/services/UserDataService";
+import UserService from "@/services/UserService";
 // import UserRegister from "@/models/UserRegister";
 
 export default {
@@ -61,7 +61,7 @@ export default {
             lastName: this.user.lastName,
             country: this.user.country
           }
-      UserDataService
+      UserService
           .register(data)
           .then(response => {
             console.log(response.data)
