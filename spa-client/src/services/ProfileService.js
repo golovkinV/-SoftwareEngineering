@@ -4,6 +4,10 @@ class ProfileService {
     get(id) {
         return http.get(`/profile/${id}`);
     }
+
+    updatePassword(data) {
+        return http.post("/profile/update_password", data)
+    }
 }
 
 export default new ProfileService ();

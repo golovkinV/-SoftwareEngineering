@@ -24,11 +24,8 @@
 
 <script>
 /*
-*  TODO: - add checking equals passwords
-*        - add load countries
-*        - add load countries
+*  TODO: - show alert about passwords
 * */
-
 import UserService from "@/services/UserService";
 
 export default {

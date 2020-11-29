@@ -34,9 +34,14 @@
 </template>
 
 <script>
+/*
+*  TODO: - add checking equals passwords
+*        - add load countries
+*        - add load countries
+*        - show alert about passwords
+* */
 
 import UserService from "@/services/UserService";
-// import UserRegister from "@/models/UserRegister";
 
 export default {
   name: "SignUp",
