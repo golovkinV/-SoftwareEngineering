@@ -1,1 +1,1 @@
-# SoftwareEngineering (UTMN project)
+# Software Engineering (UTMN project)
