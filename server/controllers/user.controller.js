@@ -1,4 +1,5 @@
 const db = require("../index");
+const hash = require("password-hash")
 const User = db.user;
 const Role = db.role
 
@@ -28,7 +29,7 @@ exports.register = (req, res) => {
 
     const user = new User({
         email: userParams.email,
-        password: userParams.password,
+        password: hash.generate(userParams.password),
         firstName: userParams.firstName,
         lastName: userParams.lastName,
         country: userParams.country,
@@ -63,12 +64,13 @@ exports.register = (req, res) => {
 exports.login = (req, res) => {
     const email = req.query.email
     const password = req.query.password
-    User.findOne({ email: email, password: password})
+    User.findOne({ email: email })
         .then(data => {
-            if (!data)
-                res
-                    .status(404)
-                    .send({ message: "Not found User with email " + email });
+            if (!data || !hash.verify(password, data.password)) {
+                res.status(404).send({
+                    message: 'Wrong email or password'
+                })
+            }
             else res.send(data);
         })
         .catch(err => {

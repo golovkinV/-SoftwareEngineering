@@ -40,6 +40,6 @@ app.listen(PORT, () => {
 require("./routes/tutorial.routes.js")(app);
 require("./routes/user.routes.js")(app);
 require("./routes/role.routes")(app);
-
+require("./routes/profile.routes.js")(app);
 
 

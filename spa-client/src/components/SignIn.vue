@@ -23,7 +23,13 @@
 </template>
 
 <script>
-import UserDataService from "@/services/UserDataService";
+/*
+*  TODO: - add checking equals passwords
+*        - add load countries
+*        - add load countries
+* */
+
+import UserService from "@/services/UserService";
 
 export default {
   name: "SignIn",
@@ -36,11 +42,11 @@ export default {
   methods: {
     login: function () {
       const { email, password } = this
-      UserDataService
+      UserService
           .login(email, password)
           .then(response => {
             console.log(response.data)
-            this.$router.push("/")
+            this.$router.push(`/profile/${response.data.id}`)
           })
           .catch(e => {
             console.log(e);
