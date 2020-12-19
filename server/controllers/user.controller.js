@@ -6,6 +6,7 @@ const Role = db.role
 // Retrieve all Users from the database.
 exports.findAll = (req, res) => {
     User.find()
+        .populate("event")
         .populate("role")
         .then(data => {
             res.send(data);
@@ -35,6 +36,7 @@ exports.register = (req, res) => {
         country: userParams.country,
         about: "",
         pin: "",
+        event: undefined,
         role: noRoleId
     });
 

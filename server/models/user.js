@@ -10,6 +10,10 @@ module.exports = mongoose => {
         country: String,
         about: String,
         pin: String,
+        event: {
+            type: Schema.Types.ObjectId,
+            ref: "Event",
+        },
         role: {
             type: Schema.Types.ObjectId,
             ref: "Role",
