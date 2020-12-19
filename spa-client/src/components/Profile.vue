@@ -25,7 +25,7 @@
       <img v-on:click="editPin" src="https://img.icons8.com/material/18/000000/pencil--v1.png"/>
       <hr>
       <label v-if="user.pin" >PIN: ••••</label>
-      <label v-else>PIN:</label>
+      <label v-else v-on:click="editPin" class="pin-setting">Set PIN</label>
     </div>
   </div>
 </template>
@@ -82,7 +82,17 @@ strong {
 img {
   margin-top: -4px;
 }
-
+.pin-setting {
+  cursor: pointer;
+  background-color: #7f7f84;
+  padding: 1.5%;
+  width: 50%;
+  color: #fff;
+  text-align: center;
+  margin-left: 24%;
+  border-radius: 1rem;
+  font-weight: 400;
+}
 .container-lrl{
   margin-top: 5%;
   margin-bottom: 5%;
