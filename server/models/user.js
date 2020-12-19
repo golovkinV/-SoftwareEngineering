@@ -8,6 +8,8 @@ module.exports = mongoose => {
         firstName: String,
         lastName: String,
         country: String,
+        about: String,
+        pin: Number,
         role: {
             type: Schema.Types.ObjectId,
             ref: "Role",
