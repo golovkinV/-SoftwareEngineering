@@ -19,12 +19,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="1e4e379d-bb62-4d52-90cf-0d20b0069683" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spa-client/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/spa-client/src/App.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spa-client/src/components/EditProfile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/spa-client/src/components/EditProfile.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spa-client/src/components/Profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/spa-client/src/components/Profile.vue" afterDir="false" />
     </list>
+=======
+    <list default="true" id="1e4e379d-bb62-4d52-90cf-0d20b0069683" name="Default Changelist" comment="" />
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
