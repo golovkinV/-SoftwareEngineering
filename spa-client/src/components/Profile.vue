@@ -9,7 +9,7 @@
     </div>
     <div class="notice  notice-lg">
       <strong>Profile information</strong>
-      <img src="https://img.icons8.com/material/18/000000/pencil--v1.png"/>
+      <img v-on:click="editProfile" src="https://img.icons8.com/material/18/000000/pencil--v1.png"/>
       <hr>
       <label>First name:</label>&nbsp;
       <label class="label label-default">{{ user.firstName }}</label><br>
@@ -45,6 +45,10 @@ export default {
     editPassword: function () {
         const user = this.user
         this.$router.push(`/profile/edit_password/${user.id}`)
+    },
+    editProfile: function () {
+        const user = this.user
+        this.$router.push(`/profile/edit_profile/${user.id}`)
     }
   },
   mounted() {

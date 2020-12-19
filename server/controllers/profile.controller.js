@@ -35,3 +35,22 @@ exports.updatePassword = (req, res) => {
                 .send({ message: "Error retrieving Tutorial with id=" + id });
         });
 };
+
+// Update profile
+exports.updateProfile = (req, res) => {
+    const id = req.params.id;
+    console.log(id)
+    User.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+        .then(data => {
+            if (!data) {
+                res.status(404).send({
+                    message: `Cannot update Profile with id=${id}. Maybe Profile was not found!`
+                });
+            } else res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: "Error updating Profile with id=" + id
+            });
+        });
+}

@@ -8,6 +8,10 @@ class ProfileService {
     updatePassword(data) {
         return http.post("/profile/update_password", data)
     }
+
+    updateProfile(data) {
+       return http.put(`/profile/update_profile/${data.id}`, data);
+    }
 }
 
 export default new ProfileService ();

@@ -33,6 +33,8 @@ exports.register = (req, res) => {
         firstName: userParams.firstName,
         lastName: userParams.lastName,
         country: userParams.country,
+        about: "",
+        pin: 0,
         role: noRoleId
     });
 
