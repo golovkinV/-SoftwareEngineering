@@ -9,7 +9,7 @@ module.exports = mongoose => {
         lastName: String,
         country: String,
         about: String,
-        pin: Number,
+        pin: String,
         role: {
             type: Schema.Types.ObjectId,
             ref: "Role",

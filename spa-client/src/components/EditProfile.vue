@@ -112,9 +112,9 @@ textarea {
   font-weight: 600;
   color: #fff;
   background-color: #0062cc;
+  padding: 1.5%;
   width: 50%;
   border-radius: 1rem;
-  padding: 1.5%;
   border: none;
   outline:none;
   cursor: pointer;

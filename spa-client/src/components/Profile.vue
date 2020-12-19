@@ -16,12 +16,16 @@
       <label>Last name:</label>&nbsp;
       <label class="label label-default">{{ user.lastName }}</label><br>
       <label>Country:</label>&nbsp;
-      <label class="label label-default">{{ user.country }}</label>
+      <label class="label label-default">{{ user.country }}</label><br>
+      <label>About:</label>&nbsp;
+      <label class="label label-default">{{ user.about }}</label>
     </div>
     <div class="notice notice-lg">
       <strong>Personal Identification Number</strong>
-      <img src="https://img.icons8.com/material/18/000000/pencil--v1.png"/>
+      <img v-on:click="editPin" src="https://img.icons8.com/material/18/000000/pencil--v1.png"/>
       <hr>
+      <label v-if="user.pin" >PIN: ••••</label>
+      <label v-else v-on:click="editPin" class="pin-setting">Set PIN</label>
     </div>
   </div>
 </template>
@@ -48,6 +52,10 @@ export default {
     editProfile: function () {
         const user = this.user
         this.$router.push(`/profile/edit_profile/${user.id}`)
+    },
+    editPin: function () {
+      const user = this.user
+      this.$router.push(`/profile/edit_pin/${user.id}`)
     }
   },
   mounted() {
@@ -74,7 +82,17 @@ strong {
 img {
   margin-top: -4px;
 }
-
+.pin-setting {
+  cursor: pointer;
+  background-color: #7f7f84;
+  padding: 1.5%;
+  width: 50%;
+  color: #fff;
+  text-align: center;
+  margin-left: 24%;
+  border-radius: 1rem;
+  font-weight: 400;
+}
 .container-lrl{
   margin-top: 5%;
   margin-bottom: 5%;
