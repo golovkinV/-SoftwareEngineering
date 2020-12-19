@@ -8,5 +8,8 @@ module.exports = app => {
     //User by id
     router.get("/:id", profileController.findOne);
 
+    //Update password
+    router.post("/update_password", profileController.updatePassword);
+
     app.use('/api/profile', router);
 };

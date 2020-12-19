@@ -2,7 +2,7 @@
   <div class="container container-lrl">
     <div class="notice notice-lg">
       <strong>Login information</strong>
-      <img src="https://img.icons8.com/material/18/000000/pencil--v1.png"/>
+      <img  v-on:click="editPassword" src="https://img.icons8.com/material/18/000000/pencil--v1.png"/>
       <hr>
       <label>Email:</label>&nbsp;<label class="label label-default">{{ user.email }}</label><br>
       <label>Role:</label>&nbsp;<label class="label label-default">{{ user.role.name }}</label>
@@ -27,7 +27,12 @@
 </template>
 
 <script>
-import UserService from "@/services/ProfileService";
+/*
+*  TODO: - add PIN
+*        - add load countries
+*        - add load countries
+* */
+import ProfileService from "@/services/ProfileService";
 
 export default {
   name: "Profile",
@@ -36,13 +41,18 @@ export default {
       user: Object
     }
   },
+  methods: {
+    editPassword: function () {
+        const user = this.user
+        this.$router.push(`/profile/edit_password/${user.id}`)
+    }
+  },
   mounted() {
     const id = this.$route.params.id
-    UserService
+    ProfileService
         .get(id)
         .then(response => {
           this.user = response.data
-          console.log(response.data)
         })
         .catch(e => {
           console.log(e);

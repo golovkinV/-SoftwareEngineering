@@ -4,6 +4,7 @@ import Tutorials from "../components/Tutorials";
 import SignIn from "../components/SignIn";
 import SignUp from "@/components/SignUp";
 import Profile from "@/components/Profile";
+import EditPassword from "@/components/EditPassword";
 
 Vue.use(Router);
 
@@ -26,6 +27,10 @@ export default new Router({
         {
             path: "/profile/:id",
             component: Profile
+        },
+        {
+            path: "/profile/edit_password/:id",
+            component: EditPassword
         }
     ]
 });

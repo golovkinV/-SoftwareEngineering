@@ -1,10 +1,12 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from 'vue';
+import App from './App.vue';
 import router from "@/router/router.js";
+import VueFlashMessage from 'vue-flash-message';
 
-Vue.config.productionTip = false
+Vue.use(VueFlashMessage);
+Vue.config.productionTip = false;
 
 new Vue({
   router,
   render: h => h(App),
-}).$mount('#app')
+}).$mount('#app');

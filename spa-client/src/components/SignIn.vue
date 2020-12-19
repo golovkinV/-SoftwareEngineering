@@ -1,5 +1,8 @@
 <template>
   <div class="container login-container">
+    <div class="flash_container">
+      <flash-message transitionIn="animated swing" class="myCustomClass"></flash-message>
+    </div>
     <div class="row align-items-center justify-content-center">
       <div class="col-md-6 login-form-1">
         <h3>Auth</h3>
@@ -23,11 +26,6 @@
 </template>
 
 <script>
-/*
-*  TODO: - add checking equals passwords
-*        - add load countries
-*        - add load countries
-* */
 
 import UserService from "@/services/UserService";
 
@@ -49,7 +47,8 @@ export default {
             this.$router.push(`/profile/${response.data.id}`)
           })
           .catch(e => {
-            console.log(e);
+            this.flash("Wrong email or password", 'error');
+            console.log(e)
           })
     },
     openRegistration: function () {
@@ -60,6 +59,10 @@ export default {
 </script>
 
 <style scoped>
+.flash_container {
+  margin-inline: auto;
+  width: 25%;
+}
 .login-container{
   margin-top: 5%;
   margin-bottom: 5%;
