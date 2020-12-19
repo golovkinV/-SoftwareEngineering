@@ -36,7 +36,7 @@ exports.register = (req, res) => {
         country: userParams.country,
         about: "",
         pin: "",
-        event: undefined,
+        event: null,
         role: noRoleId
     });
 

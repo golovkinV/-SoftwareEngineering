@@ -41,7 +41,10 @@ export default {
       UserService.getAll()
           .then(response => {
             const users = response.data
-            this.users = users.filter(user => user.role.name !== "Admin");
+            this.users = users
+                .sort( (a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+                .sort( (a, b) => (b.event===null)-(a.event===null))
+                .filter(user => user.role.name !== "Admin");
           })
           .catch(e => {
             console.log(e);
