@@ -16,12 +16,16 @@
       <label>Last name:</label>&nbsp;
       <label class="label label-default">{{ user.lastName }}</label><br>
       <label>Country:</label>&nbsp;
-      <label class="label label-default">{{ user.country }}</label>
+      <label class="label label-default">{{ user.country }}</label><br>
+      <label>About:</label>&nbsp;
+      <label class="label label-default">{{ user.about }}</label>
     </div>
     <div class="notice notice-lg">
       <strong>Personal Identification Number</strong>
-      <img src="https://img.icons8.com/material/18/000000/pencil--v1.png"/>
+      <img v-on:click="editPin" src="https://img.icons8.com/material/18/000000/pencil--v1.png"/>
       <hr>
+      <label v-if="user.pin" >PIN: ••••</label>
+      <label v-else>PIN:</label>
     </div>
   </div>
 </template>
@@ -48,6 +52,10 @@ export default {
     editProfile: function () {
         const user = this.user
         this.$router.push(`/profile/edit_profile/${user.id}`)
+    },
+    editPin: function () {
+      const user = this.user
+      this.$router.push(`/profile/edit_pin/${user.id}`)
     }
   },
   mounted() {

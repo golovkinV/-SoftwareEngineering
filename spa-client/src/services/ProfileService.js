@@ -12,6 +12,10 @@ class ProfileService {
     updateProfile(data) {
        return http.put(`/profile/update_profile/${data.id}`, data);
     }
+
+    updatePin(data) {
+       return http.post("/profile/update_pin", data);
+    }
 }
 
 export default new ProfileService ();
