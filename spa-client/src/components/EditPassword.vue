@@ -1,5 +1,8 @@
 <template>
   <div class="container login-container">
+    <div class="flash_container">
+      <flash-message transitionIn="animated swing" class="myCustomClass"></flash-message>
+    </div>
     <div class="row align-items-center justify-content-center">
       <div class="col-md-6 login-form-1">
         <h3>Edit password</h3>
@@ -28,9 +31,6 @@
 </template>
 
 <script>
-/*
-*  TODO: - add show alert about password
-* */
 
 import ProfileService from "@/services/ProfileService";
 
@@ -53,6 +53,10 @@ export default {
           newPassword: newPassword,
           repeatPassword: repeatPassword
         }
+
+      if (data.repeatPassword !== data.newPassword) {
+        this.flash("Passwords must match", 'error');
+      } else {
         ProfileService
             .updatePassword(data)
             .then(response => {
@@ -62,6 +66,7 @@ export default {
             .catch(e => {
               console.log(e);
             })
+      }
     },
     cancel: function () {
       this.$router.back()
@@ -82,7 +87,10 @@ export default {
 </script>
 
 <style scoped>
-
+.flash_container {
+  margin-inline: auto;
+  width: 50%;
+}
 .login-container {
   margin-top: 5%;
   margin-bottom: 5%;

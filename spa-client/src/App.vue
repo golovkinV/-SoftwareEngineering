@@ -1,5 +1,4 @@
 <template>
-
   <div id="app">
     <nav class="navbar navbar-expand navbar-dark bg-dark">
       <div class="navbar-nav mr-auto">
@@ -22,7 +21,7 @@
 </template>
 
 <script>
-
+require('vue-flash-message/dist/vue-flash-message.min.css');
 export default {
   name: 'App'
 }

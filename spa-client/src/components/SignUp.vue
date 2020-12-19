@@ -1,5 +1,8 @@
 <template>
   <div class="signup-form">
+    <div class="flash_container">
+      <flash-message transitionIn="animated swing" class="myCustomClass"></flash-message>
+    </div>
     <form @submit.prevent="register">
       <h3>Sign Up</h3>
       <div class="form-group">
@@ -24,7 +27,7 @@
       </div>
       <div class="form-group">
         <label>Repeat Password</label>
-        <input type="password" class="form-control" required="required">
+        <input v-model = "user.repeatPassword" type="password" class="form-control" required="required">
       </div>
       <div class="form-group" style="text-align: center">
         <input type="submit" class="btn" value="Sign Up" />
@@ -35,10 +38,7 @@
 
 <script>
 /*
-*  TODO: - add checking equals passwords
-*        - add load countries
-*        - add load countries
-*        - show alert about passwords
+*  TODO: - add load countries
 * */
 
 import UserService from "@/services/UserService";
@@ -50,6 +50,7 @@ export default {
       user: {
         email: '',
         password: '',
+        repeatPassword: '',
         firstName: '',
         lastName: '',
         country: ''
@@ -66,21 +67,31 @@ export default {
             lastName: this.user.lastName,
             country: this.user.country
           }
-      UserService
-          .register(data)
-          .then(response => {
-            console.log(response.data)
-            this.$router.push("/sign_in")
-          })
-          .catch(e => {
-            console.log(e);
-          })
+      const repeatPassword = this.user.repeatPassword
+      if (repeatPassword !== data.password) {
+        this.flash("Passwords must match", 'error');
+      } else {
+        UserService
+            .register(data)
+            .then(response => {
+              console.log(response.data)
+              this.$router.push("/sign_in")
+            })
+            .catch(e => {
+              this.flash(e, 'error');
+              console.log(e);
+            })
+      }
     }
   }
 }
 </script>
 
 <style scoped>
+.flash_container {
+  margin-inline: auto;
+  width: 50%;
+}
 .form-control {
   min-height: 41px;
   box-shadow: none;
