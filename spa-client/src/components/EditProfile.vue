@@ -29,6 +29,10 @@
 </template>
 
 <script>
+/*
+*  TODO: - add image update
+*        - add load countries
+* */
 import ProfileService from "@/services/ProfileService";
 
 export default {

@@ -30,7 +30,6 @@
 /*
 *  TODO: - add PIN
 *        - add load countries
-*        - add load countries
 * */
 import ProfileService from "@/services/ProfileService";
 
