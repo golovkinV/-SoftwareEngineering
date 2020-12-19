@@ -19,16 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e4e379d-bb62-4d52-90cf-0d20b0069683" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spa-client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/spa-client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spa-client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/spa-client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spa-client/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/spa-client/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spa-client/src/components/EditPassword.vue" beforeDir="false" afterPath="$PROJECT_DIR$/spa-client/src/components/EditPassword.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spa-client/src/components/SignIn.vue" beforeDir="false" afterPath="$PROJECT_DIR$/spa-client/src/components/SignIn.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spa-client/src/components/SignUp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/spa-client/src/components/SignUp.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spa-client/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/spa-client/src/main.js" afterDir="false" />
-    </list>
+    <list default="true" id="1e4e379d-bb62-4d52-90cf-0d20b0069683" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,7 +70,7 @@
       <workItem from="1606046267884" duration="4524000" />
       <workItem from="1606062590622" duration="4916000" />
       <workItem from="1606593415191" duration="5091000" />
-      <workItem from="1608381097149" duration="3733000" />
+      <workItem from="1608381097149" duration="4075000" />
     </task>
     <servers />
   </component>
