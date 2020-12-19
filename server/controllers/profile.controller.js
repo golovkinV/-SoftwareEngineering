@@ -15,7 +15,7 @@ exports.findOne = (req, res) => {
         .catch(err => {
             res
                 .status(500)
-                .send({ message: "Error retrieving Tutorial with id=" + id });
+                .send({ message: "Error retrieving User with id=" + id });
         });
 };
 
@@ -32,14 +32,30 @@ exports.updatePassword = (req, res) => {
         .catch(err => {
             res
                 .status(500)
-                .send({ message: "Error retrieving Tutorial with id=" + id });
+                .send({ message: "Error retrieving User with id=" + id });
+        });
+};
+
+// Update PIN
+exports.updatePin = (req, res) => {
+    const id = req.body.id;
+    const newPin = req.body.pin
+    User.updateOne({ _id: id}, { pin: newPin })
+        .then(data => {
+            if (!data)
+                res.status(404).send({ message: "Not found User with id " + id });
+            else res.send(data);
+        })
+        .catch(err => {
+            res
+                .status(500)
+                .send({ message: "Error retrieving User with id=" + id });
         });
 };
 
 // Update profile
 exports.updateProfile = (req, res) => {
     const id = req.params.id;
-    console.log(id)
     User.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
         .then(data => {
             if (!data) {

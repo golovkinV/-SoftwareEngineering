@@ -13,5 +13,8 @@ module.exports = app => {
     //Update profile
     router.put("/update_profile/:id", profileController.updateProfile);
 
+    //Update PIN
+    router.post("/update_pin", profileController.updatePin)
+
     app.use('/api/profile', router);
 };
