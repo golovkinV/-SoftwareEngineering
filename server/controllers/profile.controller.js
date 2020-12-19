@@ -6,6 +6,7 @@ const hash = require("password-hash");
 exports.findOne = (req, res) => {
     const id = req.params.id;
     User.findById(id)
+        .populate("event")
         .populate("role")
         .then(data => {
             if (!data)
