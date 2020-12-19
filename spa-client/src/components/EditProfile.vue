@@ -2,6 +2,7 @@
   <div class="signup-form">
     <form @submit.prevent="changeInfo">
       <h3>Edit profile</h3>
+      <hr>
       <div class="form-group">
         <label>First name</label>
         <input v-model = "user.firstName" type="text" class="form-control">

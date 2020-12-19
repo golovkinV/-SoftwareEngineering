@@ -7,6 +7,7 @@ import Profile from "@/components/Profile";
 import EditPassword from "@/components/EditPassword";
 import EditProfile from "@/components/EditProfile";
 import EditPin from "@/components/EditPin";
+import Users from "@/components/Users";
 
 Vue.use(Router);
 
@@ -41,6 +42,10 @@ export default new Router({
         {
             path: "/profile/edit_pin/:id",
             component: EditPin
+        },
+        {
+            path: "/users",
+            component: Users
         }
     ]
 });

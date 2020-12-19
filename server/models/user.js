@@ -10,6 +10,12 @@ module.exports = mongoose => {
         country: String,
         about: String,
         pin: String,
+        createdAt: Date,
+        event: {
+            type: Schema.Types.ObjectId,
+            default: null,
+            ref: "Event"
+        },
         role: {
             type: Schema.Types.ObjectId,
             ref: "Role",
