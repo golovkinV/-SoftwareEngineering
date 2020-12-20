@@ -32,8 +32,8 @@
 
 <script>
 /*
-*  TODO: - add PIN
-*        - add load countries
+*  TODO: - add load countries,
+*        - add image
 * */
 import ProfileService from "@/services/ProfileService";
 

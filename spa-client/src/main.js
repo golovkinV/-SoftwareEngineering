@@ -3,6 +3,7 @@ import App from './App.vue';
 import router from "@/router/router.js";
 import VueFlashMessage from 'vue-flash-message';
 
+Vue.use(require('vue-moment'))
 Vue.use(VueFlashMessage);
 Vue.config.productionTip = false;
 

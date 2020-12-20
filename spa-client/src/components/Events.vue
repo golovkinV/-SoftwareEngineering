@@ -19,7 +19,7 @@
       </tbody>
     </table>
     <div style="text-align: center; margin-top: 30px">
-      <button>Add Event</button>
+      <button v-on:click="addEvent">Add Event</button>
     </div>
   </div>
 </template>
@@ -46,6 +46,9 @@ export default {
     },
     refreshList() {
       this.fetchEvents();
+    },
+    addEvent() {
+      this.$router.push("/events/add")
     }
   },
   mounted() {
