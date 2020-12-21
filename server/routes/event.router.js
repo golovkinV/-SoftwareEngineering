@@ -12,5 +12,8 @@ module.exports = app => {
     // Add user to event
     router.put("/addUser/:id", eventController.addUser)
 
+    // Remove user to event
+    router.put("/removeUser/:id", eventController.removeUser)
+
     app.use('/api/event', router);
 };

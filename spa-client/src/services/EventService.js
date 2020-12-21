@@ -13,6 +13,10 @@ class EventService {
     addUser(id, data) {
         return http.put(`/event/addUser/${id}`, data)
     }
+
+    removeUser(id, data) {
+        return http.put(`/event/removeUser/${id}`, data)
+    }
 }
 
 export default new EventService();

@@ -17,7 +17,7 @@
         <td v-if="user.event">{{user.event.name}}</td>
         <td v-else></td>
         <td>{{user.role.name}}</td>
-        <th v-if="user.event"><button class="remove">Remove</button></th>
+        <th v-if="user.event"><button class="remove" v-on:click="removeUserFromEvent(user.id, user.event._id)">Remove</button></th>
         <td v-else><button class="assign" v-on:click="addUserToEvent(user.id)">Assign</button></td>
       </tr>
       </tbody>
@@ -50,6 +50,20 @@ export default {
             console.log(e);
           });
     },
+    removeUserFromEvent(userId, eventId) {
+      const data = {
+        userId: userId
+      }
+      EventService
+          .removeUser(eventId, data)
+          .then(response => {
+            console.log(response)
+            this.refreshList()
+          })
+          .catch(e => {
+            console.log(e)
+          })
+    },
     addUserToEvent(userId) {
       const testEvent = "5fdf7f0a4cdec66e9fb723dd"
       const data = {
@@ -59,7 +73,7 @@ export default {
           .addUser(testEvent, data)
           .then(response => {
             console.log(response)
-              this.refreshList()
+            this.refreshList()
           })
           .catch(e => {
             console.log(e)
