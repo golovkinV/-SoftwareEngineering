@@ -17,11 +17,56 @@
         <td v-if="user.event">{{user.event.name}}</td>
         <td v-else></td>
         <td>{{user.role.name}}</td>
-        <th v-if="user.event"><button class="remove" v-on:click="removeUserFromEvent(user.id, user.event._id)">Remove</button></th>
-        <td v-else><button class="assign" v-on:click="addUserToEvent(user.id)">Assign</button></td>
+        <th v-if="user.event">
+          <button class="remove" v-on:click="removeUserFromEvent(user, user.event._id)">
+            Remove
+          </button>
+        </th>
+        <td v-else>
+          <button class="assign" data-toggle="modal" data-target="#exampleModalCenter" v-on:click="setUser(user)">
+            Assign
+          </button>
+        </td>
       </tr>
       </tbody>
     </table>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Select event</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <label>Event</label>
+              <select class="form-control form-control-sm" v-model="selectedEvent">
+                <option disabled value="">Select event</option>
+                <option v-for="option in events" :key="option.id" :value="option.id">
+                  {{ option.name }}
+                </option>
+              </select><br>
+              <label>Role</label>
+              <select class="form-control form-control-sm" v-model="selectedRole" >
+                <option v-for="option in roles" :key="option.id" :value="option.id">
+                  {{ option.name }}
+                </option>
+              </select>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button class="assign" data-dismiss="modal" style="width: auto;" v-on:click="addUserToEvent">Save changes</button>
+            <button class="btn btn-secondary" style="width: auto" data-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -29,11 +74,18 @@
 
 import UserService from "@/services/UserService";
 import EventService from "@/services/EventService";
+import RoleService from "@/services/RoleService";
+
 export default {
   name: "Users",
   data() {
     return {
-      users: []
+      users: [],
+      events: [],
+      roles: [],
+      selectedEvent: "",
+      selectedRole: "",
+      selectedUser: Object,
     };
   },
   methods: {
@@ -50,10 +102,31 @@ export default {
             console.log(e);
           });
     },
-    removeUserFromEvent(userId, eventId) {
+    fetchRoles() {
+      RoleService
+          .getAll()
+          .then(response => {
+            this.roles = response.data.filter(role => role.name !== "Admin");
+          })
+          .catch(e => {
+            console.log(e);
+          });
+    },
+    fetchEvents() {
+      EventService
+          .getAll()
+          .then(response => {
+            this.events = response.data
+          })
+          .catch(e => {
+            console.log(e);
+          });
+    },
+    removeUserFromEvent(user, eventId) {
       const data = {
-        userId: userId
+        user: user
       }
+      console.log(user)
       EventService
           .removeUser(eventId, data)
           .then(response => {
@@ -64,13 +137,19 @@ export default {
             console.log(e)
           })
     },
-    addUserToEvent(userId) {
-      const testEvent = "5fdf7f0a4cdec66e9fb723dd"
+    setUser(user) {
+      this.selectedUser = user
+    },
+    addUserToEvent() {
+      const eventId = this.selectedEvent
+      const roleId = this.selectedRole
+      console.log(roleId)
       const data = {
-        userId: userId
+        user: this.selectedUser,
+        role: roleId
       }
       EventService
-          .addUser(testEvent, data)
+          .addUser(eventId, data)
           .then(response => {
             console.log(response)
             this.refreshList()
@@ -85,6 +164,8 @@ export default {
   },
   mounted() {
     this.retrieveUsers();
+    this.fetchEvents();
+    this.fetchRoles();
   }
 }
 </script>
@@ -121,5 +202,8 @@ export default {
   }
   .remove {
     background-color: #d73814;
+  }
+  select {
+    width: 50%;
   }
 </style>

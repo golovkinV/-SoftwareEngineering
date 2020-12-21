@@ -1,7 +1,7 @@
 const db = require("../index");
 const Event = db.event;
 const User = db.user;
-
+const Role = db.role
 // Fetch all Events
 exports.findAll = (req, res) => {
     Event.find()
@@ -20,22 +20,28 @@ exports.findAll = (req, res) => {
 // Remove user from Event
 exports.removeUser = (req, res) => {
     const id = req.params.id;
-    const userId = req.body.userId;
+    const user = req.body.user;
+    const oldRoleId = user.role._id
+    const noRole = "5fc37f90f2a8280450a4176b"
     Event
-        .findByIdAndUpdate(id, { $pull: { users: userId } })
+        .findByIdAndUpdate(id, { $pull: { users: user.id } })
         .then(data => {
             if (!data)
                 res.status(404).send({ message: "Not found User with id " + id });
             else {
                 User.findByIdAndUpdate(
-                    userId,
-                    { event: null },
-                    function(err, result) {
-                        if (err) {
-                            res.send(err);
-                        } else {
-                            res.send(data);
-                        }
+                    user.id,
+                    { event: null, role: noRole })
+                    .then(data => {
+                        Role
+                            .findByIdAndUpdate(oldRoleId, { $pull: { users: user.id } }, { new: true })
+                            .then(res => {
+                                Role
+                                    .findByIdAndUpdate(noRole, { $addToSet: { users: [user.id] } }, { new: true })
+                                    .then(res => {
+                                    })
+                            })
+                        res.send(data)
                     })
             }
         })
@@ -49,7 +55,11 @@ exports.removeUser = (req, res) => {
 // Add user to event
 exports.addUser = (req, res) => {
     const id = req.params.id;
-    const userId = req.body.userId;
+    const body = req.body
+    const userId = body.user.id;
+    const oldRoleId = body.user.role._id
+    const roleId = body.role
+    console.log(oldRoleId + " " + roleId)
     Event
         .findByIdAndUpdate(id, { $addToSet: { users: [userId] }}, { new: true })
         .then(data => {
@@ -58,14 +68,24 @@ exports.addUser = (req, res) => {
             else {
                 User.findByIdAndUpdate(
                     userId,
-                    { event: data.id },
-                    function(err, result) {
-                        if (err) {
-                            res.send(err);
-                        } else {
-                            res.send(data);
-                        }
+                    { event: data.id, role: roleId },
+                    { new: true })
+                    .then(data => {
+                        Role
+                            .findByIdAndUpdate(oldRoleId, { $pull: { users: userId } }, { new: true })
+                            .then(res => {
+                                Role
+                                    .findByIdAndUpdate(roleId, { $addToSet: { users: [userId] } }, { new: true })
+                                    .then(res => {
+                                    })
+                            })
+                        res.send(data);
                     })
+                    .catch(err => {
+                        res
+                            .status(500)
+                            .send({ message: "Error retrieving User with id=" + id });
+                    });
             }
         })
         .catch(err => {
