@@ -2,6 +2,7 @@ const db = require("../index");
 const Event = db.event;
 const User = db.user;
 const Role = db.role
+
 // Fetch all Events
 exports.findAll = (req, res) => {
     Event.find()
@@ -14,6 +15,23 @@ exports.findAll = (req, res) => {
                 message:
                     err.message || "Some error occurred while retrieving Role"
             });
+        });
+};
+
+// Fetch Event
+exports.findOne = (req, res) => {
+    const id = req.params.id;
+    Event.findById(id)
+        .populate("users")
+        .then(data => {
+            if (!data)
+                res.status(404).send({ message: "Not found Event with id " + id });
+            else res.send(data);
+        })
+        .catch(err => {
+            res
+                .status(500)
+                .send({ message: "Error retrieving Event with id=" + id });
         });
 };
 
@@ -59,7 +77,6 @@ exports.addUser = (req, res) => {
     const userId = body.user.id;
     const oldRoleId = body.user.role._id
     const roleId = body.role
-    console.log(oldRoleId + " " + roleId)
     Event
         .findByIdAndUpdate(id, { $addToSet: { users: [userId] }}, { new: true })
         .then(data => {

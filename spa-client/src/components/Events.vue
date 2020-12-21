@@ -11,7 +11,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr v-for="event in events" :key="event.id">
+      <tr v-for="event in events" :key="event.id" v-on:click="openDetail(event.id)">
         <td>{{event.name}}</td>
         <td>{{event.start}} - {{event.finish}}</td>
         <td>{{event.users.length}}</td>
@@ -35,6 +35,9 @@ export default {
     };
   },
   methods: {
+    openDetail(eventId) {
+      this.$router.push(`/events/${eventId}`)
+    },
     fetchEvents() {
       EventService.getAll()
           .then(response => {
@@ -74,6 +77,9 @@ h3 {
 }
 table {
   text-align: center;
+}
+tr {
+  cursor: pointer;
 }
 button {
   font-weight: 600;

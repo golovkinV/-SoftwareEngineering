@@ -6,6 +6,10 @@ class EventService {
         return http.get("/event/all");
     }
 
+    get(id) {
+        return http.get(`/event/${id}`)
+    }
+
     add(data) {
         return http.post("/event/add", data);
     }

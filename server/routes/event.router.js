@@ -15,5 +15,8 @@ module.exports = app => {
     // Remove user to event
     router.put("/removeUser/:id", eventController.removeUser)
 
+    // Fetch event
+    router.get("/:id", eventController.findOne)
+
     app.use('/api/event', router);
 };

@@ -10,6 +10,7 @@ import EditPin from "@/components/EditPin";
 import Users from "@/components/Users";
 import Events from "@/components/Events";
 import AddEvent from "@/components/AddEvent";
+import EventDetail from "@/components/EventDetail";
 
 Vue.use(Router);
 
@@ -56,6 +57,10 @@ export default new Router({
         {
             path: "/events/add",
             component: AddEvent
+        },
+        {
+            path: "/events/:id",
+            component: EventDetail
         }
     ]
 });
