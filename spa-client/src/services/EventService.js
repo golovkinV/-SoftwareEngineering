@@ -9,6 +9,10 @@ class EventService {
     add(data) {
         return http.post("/event/add", data);
     }
+
+    addUser(id, data) {
+        return http.put(`/event/addUser/${id}`, data)
+    }
 }
 
 export default new EventService();

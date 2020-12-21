@@ -18,7 +18,7 @@
         <td v-else></td>
         <td>{{user.role.name}}</td>
         <th v-if="user.event"><button class="remove">Remove</button></th>
-        <td v-else><button class="assign">Assign</button></td>
+        <td v-else><button class="assign" v-on:click="addUserToEvent(user.id)">Assign</button></td>
       </tr>
       </tbody>
     </table>
@@ -28,7 +28,7 @@
 <script>
 
 import UserService from "@/services/UserService";
-
+import EventService from "@/services/EventService";
 export default {
   name: "Users",
   data() {
@@ -49,6 +49,21 @@ export default {
           .catch(e => {
             console.log(e);
           });
+    },
+    addUserToEvent(userId) {
+      const testEvent = "5fdf7f0a4cdec66e9fb723dd"
+      const data = {
+        userId: userId
+      }
+      EventService
+          .addUser(testEvent, data)
+          .then(response => {
+            console.log(response)
+              this.refreshList()
+          })
+          .catch(e => {
+            console.log(e)
+          })
     },
     refreshList() {
       this.retrieveUsers();

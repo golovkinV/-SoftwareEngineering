@@ -38,7 +38,9 @@ export default {
     fetchEvents() {
       EventService.getAll()
           .then(response => {
-            this.events = response.data
+            const events = response.data
+            this.events = events
+                .sort( (a, b) => new Date(b.start) - new Date(a.start))
           })
           .catch( e => {
             console.log(e)

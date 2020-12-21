@@ -9,5 +9,8 @@ module.exports = app => {
     // Add event
     router.post("/add", eventController.add);
 
+    // Add user to event
+    router.put("/addUser/:id", eventController.addUser)
+
     app.use('/api/event', router);
 };

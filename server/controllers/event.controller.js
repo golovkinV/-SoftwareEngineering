@@ -1,6 +1,6 @@
-const db = require("../index")
-const Event = db.event
-
+const db = require("../index");
+const Event = db.event;
+const User = db.user;
 
 // Fetch all Events
 exports.findAll = (req, res) => {
@@ -16,6 +16,35 @@ exports.findAll = (req, res) => {
             });
         });
 };
+
+// Add user to event
+exports.addUser = (req, res) => {
+    const id = req.params.id;
+    const userId = req.body.userId;
+    Event
+        .findByIdAndUpdate(id, { $addToSet: { users: [userId] }}, { new: true })
+        .then(data => {
+            if (!data)
+                res.status(404).send({ message: "Not found User with id " + id });
+            else {
+                User.findByIdAndUpdate(
+                    userId,
+                    { event: data.id },
+                    function(err, result) {
+                        if (err) {
+                            res.send(err);
+                        } else {
+                            res.send(data);
+                        }
+                    })
+            }
+        })
+        .catch(err => {
+            res
+                .status(500)
+                .send({ message: "Error retrieving User with id=" + id });
+        });
+}
 
 // Create Event
 exports.add = (req, res) => {
