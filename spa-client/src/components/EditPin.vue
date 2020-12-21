@@ -36,8 +36,6 @@
 </template>
 
 <script>
-// import ProfileService from "@/services/ProfileService";
-
 import ProfileService from "@/services/ProfileService";
 
 export default {

@@ -32,8 +32,8 @@
 
 <script>
 /*
-*  TODO: - add PIN
-*        - add load countries
+*  TODO: - add load countries,
+*        - add image
 * */
 import ProfileService from "@/services/ProfileService";
 
@@ -81,6 +81,7 @@ strong {
 
 img {
   margin-top: -4px;
+  cursor: pointer;
 }
 .pin-setting {
   cursor: pointer;
