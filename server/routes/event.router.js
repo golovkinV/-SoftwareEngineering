@@ -3,8 +3,23 @@ module.exports = app => {
 
     const router = require("express").Router();
 
-    // Add role
+    // Fetch all events
+    router.get("/all", eventController.findAll)
+
+    // Add event
     router.post("/add", eventController.add);
+
+    // Add user to event
+    router.put("/addUser/:id", eventController.addUser)
+
+    // Remove user to event
+    router.put("/removeUser/:id", eventController.removeUser)
+
+    // Fetch event
+    router.get("/:id", eventController.findOne)
+
+    // Update event
+    router.put("/:id", eventController.updateEvent)
 
     app.use('/api/event', router);
 };
