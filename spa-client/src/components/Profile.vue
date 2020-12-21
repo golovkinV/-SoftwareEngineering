@@ -81,6 +81,7 @@ strong {
 
 img {
   margin-top: -4px;
+  cursor: pointer;
 }
 .pin-setting {
   cursor: pointer;

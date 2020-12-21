@@ -18,6 +18,21 @@ exports.findAll = (req, res) => {
         });
 };
 
+exports.updateEvent = (req, res) => {
+    const id = req.params.id;
+    const event = req.body
+    Event
+        .findByIdAndUpdate(id, event, { useFindAndModify: false })
+        .then(data => {
+            res.send(data)
+        })
+        .catch(err => {
+            res
+                .status(500)
+                .send({ message: "Error retrieving Event with id=" + id });
+        });
+}
+
 // Fetch Event
 exports.findOne = (req, res) => {
     const id = req.params.id;

@@ -18,5 +18,8 @@ module.exports = app => {
     // Fetch event
     router.get("/:id", eventController.findOne)
 
+    // Update event
+    router.put("/:id", eventController.updateEvent)
+
     app.use('/api/event', router);
 };
