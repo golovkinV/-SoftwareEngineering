@@ -29,6 +29,7 @@ exports.add = (req, res) => {
 exports.update = (req, res) => {
     const id = req.params.id;
     const doc = req.body
+    console.log(doc)
     Document
         .findByIdAndUpdate(id, doc, { useFindAndModify: false })
         .then(data => {
