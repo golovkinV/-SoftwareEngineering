@@ -5,6 +5,14 @@ module.exports = mongoose => {
         name: String,
         date: String,
         desc: String,
+        isSigned: {
+          type: Boolean,
+          default: false
+        },
+        event: {
+            type: Schema.Types.ObjectId,
+            ref: "Event",
+        },
         role: {
             type: Schema.Types.ObjectId,
             ref: "Role",

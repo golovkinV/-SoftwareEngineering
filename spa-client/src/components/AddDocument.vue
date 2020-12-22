@@ -16,6 +16,15 @@
         <textarea  v-model="document.desc" class="form-control" rows="4" cols="50" required="required"></textarea>
       </div>
       <div class="form-group">
+        <label>Event</label>
+        <select class="form-control form-control-sm" v-model="document.event">
+          <option disabled value="">Select event</option>
+          <option v-for="option in events" :key="option.id" :value="option.id">
+            {{ option.name }}
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
         <label>For Role:</label>
         <select class="form-control form-control-sm" v-model="document.role" required="required">
           <option disabled value="">Select role</option>
@@ -35,6 +44,7 @@
 
 <script>
 import DocumentService from "@/services/DocumentService";
+import EventService from "@/services/EventService";
 export default {
   name: "AddDocument",
   data() {
@@ -43,11 +53,23 @@ export default {
         name: "",
         date: "",
         desc: "",
+        event: "",
         role: ""
-      }
+      },
+      events: []
     }
   },
   methods: {
+    fetchEvents() {
+      EventService
+          .getAll()
+          .then(res => {
+            this.events = res.data
+          })
+          .catch(e => {
+            console.log(e)
+          })
+    },
     addDocument() {
       DocumentService
           .add(this.document)
@@ -62,6 +84,9 @@ export default {
     cancel() {
       this.$router.back()
     }
+  },
+  mounted() {
+    this.fetchEvents()
   }
 }
 </script>
