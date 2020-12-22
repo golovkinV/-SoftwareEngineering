@@ -15,5 +15,8 @@ module.exports = app => {
     // Update document
     router.put("/:id", documentController.update)
 
+    // Fetch document
+    router.get("/:id", documentController.findOne)
+
     app.use('/api/document', router);
 };

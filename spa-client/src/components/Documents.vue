@@ -19,7 +19,7 @@
       </tbody>
     </table>
     <div style="text-align: center; margin-top: 30px">
-      <button v-on:click="addDoc">Add Event</button>
+      <button v-on:click="addDoc">Add Document</button>
     </div>
   </div>
 </template>
@@ -45,6 +45,9 @@ export default {
     },
     addDoc() {
       this.$router.push("/documents/add")
+    },
+    openDetail(docId) {
+      this.$router.push(`/documents/${docId}`)
     }
   },
   mounted() {
