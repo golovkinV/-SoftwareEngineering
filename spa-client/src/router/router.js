@@ -14,6 +14,7 @@ import EventDetail from "@/components/EventDetail";
 import AddDocument from "@/components/AddDocument";
 import Documents from "@/components/Documents";
 import DocumentDetail from "@/components/DocumentDetail";
+import EventDocuments from "@/components/EventDocuments";
 
 Vue.use(Router);
 
@@ -76,6 +77,10 @@ export default new Router({
         {
             path: "/documents/:id",
             component: DocumentDetail
+        },
+        {
+            path: "/events/:id/docs",
+            component: EventDocuments
         }
     ]
 });
