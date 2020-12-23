@@ -12,5 +12,7 @@ module.exports = app => {
     // All roles
     router.get("/all", roleController.findAll);
 
+    // Get Role
+    router.get("/:id", roleController.findOne)
     app.use('/api/role', router);
 };

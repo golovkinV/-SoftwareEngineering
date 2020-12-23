@@ -64,6 +64,11 @@ export default {
         .get(id)
         .then(response => {
           this.user = response.data
+          const user = JSON.stringify(response.data)
+          localStorage.setItem("user", user)
+
+          // localStorage.setItem("user_role", response.data.role)
+          // const userSave = JSON.parse(localStorage.getItem("user"))
         })
         .catch(e => {
           console.log(e);

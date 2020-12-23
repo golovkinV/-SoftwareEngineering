@@ -58,3 +58,20 @@ exports.delete = (req, res) => {
             });
         });
 };
+
+// Fetch Role
+exports.findOne = (req, res) => {
+    const id = req.params.id;
+    Role.findById(id)
+        .populate("users")
+        .then(data => {
+            if (!data)
+                res.status(404).send({ message: "Not found Role with id " + id });
+            else res.send(data);
+        })
+        .catch(err => {
+            res
+                .status(500)
+                .send({ message: "Error retrieving Role with id=" + id });
+        });
+};
