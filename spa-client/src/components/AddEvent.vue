@@ -3,6 +3,15 @@
     <form @submit.prevent="addEvent">
       <h3>Add event</h3>
       <hr>
+      <div class="form-group" style="margin-left: 30%">
+        <img :src="data.image"/>
+      </div>
+      <div class="form-group">
+        <div class="custom-file">
+          <label class="custom-file-label" for="customFile">Choose image</label>
+          <input type="file" accept="image/*" @change="uploadImage($event)" class="custom-file-input" id="customFile">
+        </div>
+      </div>
       <div class="form-group">
         <label>Event title</label>
         <input v-model="data.name" type="text" class="form-control" required="required">
@@ -38,6 +47,7 @@
 *  TODO: - add load image
 * */
 import EventService from "@/services/EventService";
+import ImageService from "@/services/ImageService";
 
 export default {
   name: "AddEvent",
@@ -48,7 +58,8 @@ export default {
         start: '',
         CStart: '',
         CFinish: '',
-        finish: ''
+        finish: '',
+        image: ''
       }
     }
   },
@@ -66,12 +77,34 @@ export default {
     },
     cancel() {
       this.$router.back()
+    },
+    uploadImage(event) {
+      const image = event.target.files[0];
+      if (image) {
+        const formData = new FormData();
+        formData.append('file', image);
+        ImageService
+            .upload(formData)
+            .then(res => {
+              this.data.image = res.data
+            })
+            .catch(e => {
+              console.log(e)
+            })
+      }
     }
   }
 }
 </script>
 
 <style scoped>
+img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: none;
+  background-color: #dddddd;
+}
 .form-control {
   min-height: 41px;
   box-shadow: none;

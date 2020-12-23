@@ -13,6 +13,10 @@ class UserService {
     register(data) {
         return http.post("/user", data)
     }
+
+    update(id, data) {
+        return http.put(`/user/${id}`, data)
+    }
 }
 
 export default new UserService();

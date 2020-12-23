@@ -42,7 +42,9 @@ export default {
 strong {
   margin-right: 8px;
 }
-
+.nav-link {
+  color: #2c3e50;
+}
 img {
   margin-top: -4px;
   cursor: pointer;

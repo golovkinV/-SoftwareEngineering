@@ -36,7 +36,6 @@ export default {
   mounted() {
     const authUser = JSON.parse(localStorage.getItem("user"));
     this.user = authUser
-    console.log(this.user)
     this.isAuth = !!authUser
   }
 }

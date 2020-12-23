@@ -1,5 +1,12 @@
 <template>
   <div class="container container-lrl">
+    <div class="form-group image-upload" style="margin-left: 30%">
+      <img :src="user.avatar" class="avatar"/>
+      <label for="file-input" style="vertical-align: bottom">
+        <img src="https://img.icons8.com/material/18/000000/pencil--v1.png"/>
+      </label>
+      <input id="file-input" type="file" @change="uploadImage($event)" />
+    </div>
     <div class="notice notice-lg">
       <strong>Login information</strong>
       <img  v-on:click="editPassword" src="https://img.icons8.com/material/18/000000/pencil--v1.png"/>
@@ -36,6 +43,8 @@
 *        - add image
 * */
 import ProfileService from "@/services/ProfileService";
+import ImageService from "@/services/ImageService";
+import UserService from "@/services/UserService";
 
 export default {
   name: "Profile",
@@ -56,6 +65,33 @@ export default {
     editPin: function () {
       const user = this.user
       this.$router.push(`/profile/edit_pin/${user.id}`)
+    },
+    update() {
+      const id = this.$route.params.id
+      UserService
+          .update(id, this.user)
+          .then(res => {
+            console.log(res.data)
+          })
+        .catch(e => {
+          console.log(e)
+        })
+    },
+    uploadImage(event) {
+      const image = event.target.files[0];
+      if (image) {
+        const formData = new FormData();
+        formData.append('file', image);
+        ImageService
+            .upload(formData)
+            .then(res => {
+              this.user.avatar = res.data
+              this.update()
+            })
+            .catch(e => {
+              console.log(e)
+            })
+      }
     }
   },
   mounted() {
@@ -66,9 +102,6 @@ export default {
           this.user = response.data
           const user = JSON.stringify(response.data)
           localStorage.setItem("user", user)
-
-          // localStorage.setItem("user_role", response.data.role)
-          // const userSave = JSON.parse(localStorage.getItem("user"))
         })
         .catch(e => {
           console.log(e);
@@ -83,7 +116,17 @@ export default {
 strong {
   margin-right: 8px;
 }
-
+.image-upload>input {
+  display: none;
+}
+.avatar {
+  margin-top: 0;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: none;
+  background-color: #dddddd;
+}
 img {
   margin-top: -4px;
   cursor: pointer;
