@@ -15,6 +15,7 @@ import AddDocument from "@/components/AddDocument";
 import Documents from "@/components/Documents";
 import DocumentDetail from "@/components/DocumentDetail";
 import EventDocuments from "@/components/EventDocuments";
+import Home from "@/components/Home";
 
 Vue.use(Router);
 
@@ -36,6 +37,7 @@ export default new Router({
         },
         {
             path: "/profile/:id",
+            name: "profile",
             component: Profile
         },
         {
@@ -81,6 +83,10 @@ export default new Router({
         {
             path: "/events/:id/docs",
             component: EventDocuments
+        },
+        {
+            path: "/home",
+            component: Home
         }
     ]
 });

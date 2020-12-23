@@ -2,13 +2,13 @@
   <div class="container container-lrl">
     <div class="notice notice-lg">
       <strong>Event information</strong>
-      <img data-toggle="modal" data-target="#exampleModalCenter" src="https://img.icons8.com/material/18/000000/pencil--v1.png"/>
+      <img v-if="isAdmin" data-toggle="modal" data-target="#exampleModalCenter" src="https://img.icons8.com/material/18/000000/pencil--v1.png"/>
       <hr>
       <label>Event Title:</label>&nbsp;<label class="label label-default">{{ event.name }}</label>
     </div>
     <div class="notice  notice-lg">
       <strong>Dates information</strong>
-      <img data-toggle="modal" data-target="#exampleModalCenterDates" src="https://img.icons8.com/material/18/000000/pencil--v1.png"/>
+      <img v-if="isAdmin" data-toggle="modal" data-target="#exampleModalCenterDates" src="https://img.icons8.com/material/18/000000/pencil--v1.png"/>
       <hr>
       <label>Start Date:</label>&nbsp;
       <label class="label label-default">{{ event.start }}</label><br>
@@ -93,7 +93,8 @@ export default {
   name: "EventDetail",
   data() {
     return {
-      event: Object
+      event: Object,
+      isAdmin: Boolean
     }
   },
   methods: {
@@ -126,6 +127,8 @@ export default {
   },
   mounted() {
     this.fetchEvent()
+    const authUser = JSON.parse(localStorage.getItem("user"));
+    this.isAdmin = authUser.role.name === "Admin"
   }
 }
 </script>
