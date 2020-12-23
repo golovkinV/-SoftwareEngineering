@@ -7,6 +7,10 @@ module.exports = mongoose => {
         CStart: String,
         CFinish: String,
         finish: String,
+        docs: [{
+            type: Schema.Types.ObjectId,
+            ref: "Document",
+        }],
         users: [{
             type: Schema.Types.ObjectId,
             ref: "User",
