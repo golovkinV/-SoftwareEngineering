@@ -7,6 +7,7 @@ const Role = db.role
 exports.findAll = (req, res) => {
     Event.find()
         .populate("users")
+        .populate("docs")
         .then(data => {
             res.send(data);
         })
@@ -38,6 +39,7 @@ exports.findOne = (req, res) => {
     const id = req.params.id;
     Event.findById(id)
         .populate("users")
+        .populate("docs")
         .then(data => {
             if (!data)
                 res.status(404).send({ message: "Not found Event with id " + id });

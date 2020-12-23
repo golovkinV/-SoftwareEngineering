@@ -41,5 +41,5 @@ require("./routes/tutorial.routes.js")(app);
 require("./routes/user.routes.js")(app);
 require("./routes/role.routes")(app);
 require("./routes/profile.routes.js")(app);
-require("./routes/event.router")(app);
-
+require("./routes/event.routes.js")(app);
+require("./routes/document.routes.js")(app);
