@@ -2,7 +2,7 @@
   <div class="container container-lrl">
     <div class="notice  notice-lg">
       <strong>Document information</strong>
-      <img data-toggle="modal" data-target="#exampleModalCenter" src="https://img.icons8.com/material/18/000000/pencil--v1.png"/>
+      <img v-if="isAdmin" data-toggle="modal" data-target="#exampleModalCenter" src="https://img.icons8.com/material/18/000000/pencil--v1.png"/>
       <hr>
       <label>Document Title:</label>&nbsp;
       <label class="label label-default">{{ doc.name }}</label><br>
@@ -13,7 +13,7 @@
       <label>For:</label>&nbsp;
       <label class="label label-default">{{ doc.role.name }}</label>
     </div>
-    <div class="form-group" style="text-align: center">
+    <div v-if="isAdmin" class="form-group" style="text-align: center">
       <button v-on:click="deleteDoc"  class="ForgetPwd">Delete</button>
     </div>
     <div class="form-group" style="text-align: center">
@@ -68,7 +68,8 @@ export default {
   name: "DocumentDetail",
   data() {
     return {
-      doc: Object
+      doc: Object,
+      isAdmin: Boolean
     }
   },
   methods: {
@@ -114,6 +115,8 @@ export default {
   },
   mounted() {
     this.fetchDoc()
+    const authUser = JSON.parse(localStorage.getItem("user"));
+    this.isAdmin = authUser.role.name === "Admin"
   }
 }
 </script>

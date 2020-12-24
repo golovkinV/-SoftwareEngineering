@@ -137,7 +137,8 @@ exports.add = (req, res) => {
         start: eventParams.start,
         CStart: eventParams.CStart,
         CFinish: eventParams.CFinish,
-        finish: eventParams.finish
+        finish: eventParams.finish,
+        image: eventParams.image
     })
 
     event

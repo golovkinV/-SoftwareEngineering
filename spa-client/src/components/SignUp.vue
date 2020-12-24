@@ -5,6 +5,15 @@
     </div>
     <form @submit.prevent="register">
       <h3>Sign Up</h3>
+      <div class="form-group" style="margin-left: 30%">
+        <img :src="user.avatar"/>
+      </div>
+      <div class="form-group">
+      <div class="custom-file">
+        <label class="custom-file-label" for="customFile">Choose image</label>
+        <input type="file" accept="image/*" @change="uploadImage($event)" class="custom-file-input" id="customFile">
+      </div>
+      </div>
       <div class="form-group">
         <label>First name</label>
         <input v-model = "user.firstName" type="text" class="form-control" required="required">
@@ -42,6 +51,7 @@
 * */
 
 import UserService from "@/services/UserService";
+import ImageService from "@/services/ImageService";
 
 export default {
   name: "SignUp",
@@ -53,7 +63,8 @@ export default {
         repeatPassword: '',
         firstName: '',
         lastName: '',
-        country: ''
+        country: '',
+        avatar: ''
       }
     }
   },
@@ -65,7 +76,8 @@ export default {
             password: this.user.password,
             firstName: this.user.firstName,
             lastName: this.user.lastName,
-            country: this.user.country
+            country: this.user.country,
+            avatar: this.user.avatar
           }
       const repeatPassword = this.user.repeatPassword
       if (repeatPassword !== data.password) {
@@ -82,12 +94,34 @@ export default {
               console.log(e);
             })
       }
+    },
+    uploadImage(event) {
+      const image = event.target.files[0];
+      if (image) {
+        const formData = new FormData();
+        formData.append('file', image);
+        ImageService
+            .upload(formData)
+            .then(res => {
+              this.user.avatar = res.data
+            })
+            .catch(e => {
+              console.log(e)
+            })
+      }
     }
   }
 }
 </script>
 
 <style scoped>
+img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: none;
+  background-color: #dddddd;
+}
 .flash_container {
   margin-inline: auto;
   width: 50%;
