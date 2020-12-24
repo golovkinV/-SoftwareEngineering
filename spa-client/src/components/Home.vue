@@ -18,7 +18,6 @@
       <hr>
       <router-link to="/documents" class="nav-link">Browse</router-link>
       <router-link v-if="isAdmin" to="/documents/add" class="nav-link">Create</router-link>
-      <router-link to="/documents" class="nav-link">Download</router-link>
     </div>
   </div>
 </template>
