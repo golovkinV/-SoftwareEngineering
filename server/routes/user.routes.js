@@ -12,5 +12,8 @@ module.exports = app => {
     // All Users
     router.get("/all",userController.findAll);
 
+    // Update user
+    router.put("/:id", userController.update)
+
     app.use('/api/user', router);
 };

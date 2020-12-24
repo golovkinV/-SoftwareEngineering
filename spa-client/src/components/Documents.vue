@@ -18,7 +18,7 @@
       </tr>
       </tbody>
     </table>
-    <div style="text-align: center; margin-top: 30px">
+    <div v-if="isAdmin" style="text-align: center; margin-top: 30px">
       <button v-on:click="addDoc">Add Document</button>
     </div>
   </div>
@@ -30,7 +30,8 @@ export default {
   name: "Documents",
   data() {
     return {
-      documents: []
+      documents: [],
+      isAdmin: Boolean
     }
   },
   methods: {
@@ -52,6 +53,8 @@ export default {
   },
   mounted() {
     this.fetchDocs()
+    const authUser = JSON.parse(localStorage.getItem("user"));
+    this.isAdmin = authUser.role.name === "Admin"
   }
 }
 </script>

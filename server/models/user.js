@@ -11,6 +11,7 @@ module.exports = mongoose => {
         about: String,
         pin: String,
         createdAt: Date,
+        avatar: String,
         event: {
             type: Schema.Types.ObjectId,
             default: null,

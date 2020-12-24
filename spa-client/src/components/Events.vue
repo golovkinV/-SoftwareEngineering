@@ -18,7 +18,7 @@
       </tr>
       </tbody>
     </table>
-    <div style="text-align: center; margin-top: 30px">
+    <div style="text-align: center; margin-top: 30px" v-if="isAdmin">
       <button v-on:click="addEvent">Add Event</button>
     </div>
   </div>
@@ -31,7 +31,8 @@ export default {
   name: "Events",
   data() {
     return {
-      events: []
+      events: [],
+      isAdmin: Boolean
     };
   },
   methods: {
@@ -58,6 +59,8 @@ export default {
   },
   mounted() {
     this.fetchEvents();
+    const authUser = JSON.parse(localStorage.getItem("user"));
+    this.isAdmin = authUser.role.name === "Admin"
   }
 }
 </script>

@@ -1,14 +1,21 @@
 <template>
   <div class="container container-lrl">
+    <div class="form-group image-upload" style="margin-left: 30%">
+      <img :src="event.image" class="avatar"/>
+      <label  v-if="isAdmin" for="file-input" style="vertical-align: bottom">
+        <img  v-if="isAdmin" src="https://img.icons8.com/material/18/000000/pencil--v1.png"/>
+      </label>
+      <input id="file-input" type="file" @change="uploadImage($event)" />
+    </div>
     <div class="notice notice-lg">
       <strong>Event information</strong>
-      <img data-toggle="modal" data-target="#exampleModalCenter" src="https://img.icons8.com/material/18/000000/pencil--v1.png"/>
+      <img v-if="isAdmin" data-toggle="modal" data-target="#exampleModalCenter" src="https://img.icons8.com/material/18/000000/pencil--v1.png"/>
       <hr>
       <label>Event Title:</label>&nbsp;<label class="label label-default">{{ event.name }}</label>
     </div>
     <div class="notice  notice-lg">
       <strong>Dates information</strong>
-      <img data-toggle="modal" data-target="#exampleModalCenterDates" src="https://img.icons8.com/material/18/000000/pencil--v1.png"/>
+      <img v-if="isAdmin" data-toggle="modal" data-target="#exampleModalCenterDates" src="https://img.icons8.com/material/18/000000/pencil--v1.png"/>
       <hr>
       <label>Start Date:</label>&nbsp;
       <label class="label label-default">{{ event.start }}</label><br>
@@ -89,11 +96,13 @@
 
 <script>
 import EventService from "@/services/EventService";
+import ImageService from "@/services/ImageService";
 export default {
   name: "EventDetail",
   data() {
     return {
-      event: Object
+      event: Object,
+      isAdmin: Boolean
     }
   },
   methods: {
@@ -122,16 +131,44 @@ export default {
     },
     back() {
       this.$router.back()
+    },
+    uploadImage(event) {
+      const image = event.target.files[0];
+      if (image) {
+        const formData = new FormData();
+        formData.append('file', image);
+        ImageService
+            .upload(formData)
+            .then(res => {
+              this.event.image = res.data
+              this.update()
+            })
+            .catch(e => {
+              console.log(e)
+            })
+      }
     }
   },
   mounted() {
     this.fetchEvent()
+    const authUser = JSON.parse(localStorage.getItem("user"));
+    this.isAdmin = authUser.role.name === "Admin"
   }
 }
 </script>
 
 <style scoped>
-
+.image-upload>input {
+  display: none;
+}
+.avatar {
+  margin-top: 0;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: none;
+  background-color: #dddddd;
+}
 strong {
   margin-right: 8px;
 }
@@ -145,7 +182,6 @@ img {
   margin-bottom: 5%;
   width: 40%;
 }
-
 .notice {
   padding: 15px;
   background-color: #fafafa;

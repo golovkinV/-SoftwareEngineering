@@ -7,6 +7,7 @@ module.exports = mongoose => {
         CStart: String,
         CFinish: String,
         finish: String,
+        image: String,
         docs: [{
             type: Schema.Types.ObjectId,
             ref: "Document",

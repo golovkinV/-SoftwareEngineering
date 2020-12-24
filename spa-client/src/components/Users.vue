@@ -8,7 +8,7 @@
         <th>Name</th>
         <th>Event</th>
         <th>Role</th>
-        <th>Assign</th>
+        <th v-if="isAdmin">Assign</th>
       </tr>
       </thead>
       <tbody>
@@ -17,12 +17,12 @@
         <td v-if="user.event">{{user.event.name}}</td>
         <td v-else></td>
         <td>{{user.role.name}}</td>
-        <th v-if="user.event">
+        <th v-if="isAdmin && user.event">
           <button class="remove" v-on:click="removeUserFromEvent(user, user.event._id)">
             Remove
           </button>
         </th>
-        <td v-else>
+        <td v-else-if="isAdmin">
           <button class="assign" data-toggle="modal" data-target="#exampleModalCenter" v-on:click="setUser(user)">
             Assign
           </button>
@@ -86,6 +86,7 @@ export default {
       selectedEvent: "",
       selectedRole: "",
       selectedUser: Object,
+      isAdmin: Boolean
     };
   },
   methods: {
@@ -166,6 +167,8 @@ export default {
     this.retrieveUsers();
     this.fetchEvents();
     this.fetchRoles();
+    const authUser = JSON.parse(localStorage.getItem("user"));
+    this.isAdmin = authUser.role.name === "Admin"
   }
 }
 </script>

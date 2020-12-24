@@ -37,6 +37,7 @@ exports.register = (req, res) => {
         about: "",
         pin: "",
         event: null,
+        avatar: userParams.avatar,
         role: noRoleId
     });
 
@@ -64,12 +65,28 @@ exports.register = (req, res) => {
         });
 };
 
+exports.update = (req, res) => {
+    const id = req.params.id;
+    const event = req.body
+    User
+        .findByIdAndUpdate(id, event, { useFindAndModify: false })
+        .then(data => {
+            res.send(data)
+        })
+        .catch(err => {
+            res
+                .status(500)
+                .send({ message: "Error retrieving User with id=" + id });
+        });
+}
+
 // Login User
 exports.login = (req, res) => {
     const email = req.query.email
     const password = req.query.password
     User.findOne({ email: email })
         .then(data => {
+            console.log(email)
             if (!data || !hash.verify(password, data.password)) {
                 res.status(404).send({
                     message: 'Wrong email or password'
