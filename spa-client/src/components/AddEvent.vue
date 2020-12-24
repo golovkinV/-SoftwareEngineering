@@ -43,9 +43,6 @@
 </template>
 
 <script>
-/*
-*  TODO: - add load image
-* */
 import EventService from "@/services/EventService";
 import ImageService from "@/services/ImageService";
 

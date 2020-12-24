@@ -46,9 +46,6 @@
 </template>
 
 <script>
-/*
-*  TODO: - add load countries
-* */
 
 import UserService from "@/services/UserService";
 import ImageService from "@/services/ImageService";

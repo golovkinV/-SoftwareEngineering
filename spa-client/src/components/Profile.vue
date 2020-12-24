@@ -38,10 +38,7 @@
 </template>
 
 <script>
-/*
-*  TODO: - add load countries,
-*        - add image
-* */
+
 import ProfileService from "@/services/ProfileService";
 import ImageService from "@/services/ImageService";
 import UserService from "@/services/UserService";

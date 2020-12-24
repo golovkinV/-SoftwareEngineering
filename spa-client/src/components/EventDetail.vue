@@ -32,6 +32,9 @@
       <label>Participants:</label>&nbsp;<label>{{ event.users.length }}</label>
     </div>
     <div class="form-group" style="text-align: center">
+      <button v-on:click="openDocs"  class="ForgetPwd">Documents</button>
+    </div>
+    <div class="form-group" style="text-align: center">
       <button v-on:click="back"  class="ForgetPwd">Back</button>
     </div>
 
@@ -131,6 +134,10 @@ export default {
     },
     back() {
       this.$router.back()
+    },
+    openDocs() {
+      const id = this.$route.params.id
+      this.$router.push(`/events/${id}/docs`)
     },
     uploadImage(event) {
       const image = event.target.files[0];

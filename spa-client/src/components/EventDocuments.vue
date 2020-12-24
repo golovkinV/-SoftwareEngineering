@@ -7,7 +7,7 @@
       <tr>
         <th>Day</th>
         <th>Document</th>
-        <th>For</th>
+        <th>State</th>
       </tr>
       </thead>
       <tbody>
@@ -15,7 +15,7 @@
         <td>{{doc.date}}</td>
         <td>{{doc.name}}</td>
         <td v-if="doc.isSigned">Signed</td>
-        <td v-else><button class="assign" data-toggle="modal" data-target="#exampleModalCenter">Sign</button></td>
+        <td v-else><button class="assign" data-toggle="modal" data-target="#exampleModalCenter" v-on:click="setDoc(doc)">Sign</button></td>
       </tr>
       </tbody>
     </table>
@@ -62,6 +62,8 @@
 
 <script>
 import EventService from "@/services/EventService";
+import DocumentService from "@/services/DocumentService";
+
 export default {
   name: "EventDocuments",
   data() {
@@ -70,7 +72,9 @@ export default {
       first: "",
       second: "",
       third: "",
-      fourth: ""
+      fourth: "",
+      user: {},
+      selectedDoc: {}
     }
   },
   methods: {
@@ -85,12 +89,32 @@ export default {
             console.log(e)
           })
     },
+    setDoc(doc){
+      this.selectedDoc = doc
+    },
     confirmPin() {
-
+      const { first , second, third, fourth } = this
+      const input = `${first}${second}${third}${fourth}`
+      const pin = this.user.pin
+      if (pin === input) {
+        const doc = this.selectedDoc
+        doc.isSigned = true
+        DocumentService
+            .update(doc._id, doc)
+            .then(res => {
+              console.log(res)
+            })
+            .catch(e => {
+              console.log(e)
+            })
+      }
     }
   },
   mounted() {
     this.fetchEvent()
+    const authUser = JSON.parse(localStorage.getItem("user"));
+    this.user = authUser
+    this.isAdmin = authUser.role.name === "Admin"
   }
 }
 </script>

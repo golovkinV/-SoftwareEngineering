@@ -21,9 +21,6 @@
 </template>
 
 <script>
-/*
-*  TODO: - save session
-* */
 require('vue-flash-message/dist/vue-flash-message.min.css');
 export default {
   name: 'App',
