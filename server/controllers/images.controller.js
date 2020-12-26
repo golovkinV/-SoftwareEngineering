@@ -1,12 +1,9 @@
-// const fs = require('fs');
 const s3 = require('../AWS');
 
 exports.uploadImage = (req, res) => {
 
     const image = req.files.file
-    // Read content from the file
-    // const fileContent = fs.readFileSync(image.data);
-    // console.log(fileContent)
+
     // Setting up S3 upload parameters
     const params = {
         Bucket: 'utmn',
